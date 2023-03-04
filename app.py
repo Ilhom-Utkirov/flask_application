@@ -65,6 +65,18 @@ def puppy_latin(name):
         return 'Hi {}! Your latin name is {}'.format(name, name + 'y')
     else:
         return 'Hi {}! Your latin name is {}'.format(name, name[:-1] + 'iful')
+#===================================================================================================================================
+# template inheritence
+
+@app.route('/home')
+def root():
+    return render_template('home.html')
+
+@app.route('/puppys/<name>')
+def pup_name(name):
+    return render_template('puppy.html', name=name)
+
+
 
 
 if __name__ == '__main__':
