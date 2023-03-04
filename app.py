@@ -20,6 +20,19 @@ def index3():
     pup_dictionary = {'pup_name': 'Ssammy'}
     return render_template('basic2.html', name=name, letters=letter,
                            pup_dictionary=pup_dictionary)
+@app.route('/render2')
+def index4():
+    #code
+    user_logged_in =True
+
+    puppies = ['reks', 'linda', 'sharik']
+    pup_dictionary = {'pup_name': 'Ssammy'}
+    return render_template('basic3.html', puppies=puppies)
+@app.route('/render3')
+def index4():
+    #code
+    user_logged_in =True
+    return render_template('login.html', user_logged_in=user_logged_in)
 
 
 @app.route('/information')
