@@ -1,0 +1,33 @@
+{% extends "front/base.html" %}
+
+{% block content %}
+    <div id="footer">
+        <div class="jumbotran" align="center">
+            {#        <div class="jumbotran"  align="center" style="margin-left: 30em; margin-right: 30em;">#}
+            <p>Lets see how you performed!!</p>
+            {% if status==True %}
+                <p>It seems your name is correct</p>
+            {% else %}
+                <p> It seems your name is incorrect </p>
+                <ul>
+                    {% if not lower_letter %}
+                        <li>You should use lowercase letter</li>
+                    {% endif %}
+                    {% if not upper_letter %}
+                        <li>You should use an uppercase letters</li>
+                    {% endif %}
+                    {% if not num_end %}
+                        <li>Your username should end with number</li>
+                    {% endif %}
+                </ul>
+
+
+                {#                <ul>#}
+                {#                    {% for item in error_code %}#}
+                {#                        <li>{{ item.rjust(20) }}</li>#}
+                {#                    {% endfor %}#}
+                {#                </ul>#}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
