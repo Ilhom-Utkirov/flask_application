@@ -28,10 +28,10 @@ def index4():
     puppies = ['reks', 'linda', 'sharik']
     pup_dictionary = {'pup_name': 'Ssammy'}
     return render_template('basic3.html', puppies=puppies)
-@app.route('/render3')
-def index4():
+@app.route('/login')
+def login():
     #code
-    user_logged_in =True
+    user_logged_in =False
     return render_template('login.html', user_logged_in=user_logged_in)
 
 
