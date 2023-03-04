@@ -4,44 +4,54 @@ app = Flask(__name__)
 
 app.debug = True
 
+
 # @app.route('/')
 # def hello_world():  # put application's code here
 #     return "<h1>Hello World!</h1>"
 @app.route('/')
 def index2():
-    some_variable = "Jose"
-    return render_template('basic2.html', my_name_sending=some_variable)
+    return render_template('basic.html')
 
 
 @app.route('/render')
 def index3():
-    return render_template('basic.html')
+    name = "JoseAlonso"
+    letter = list(name)
+    pup_dictionary = {'pup_name': 'Ssammy'}
+    return render_template('basic2.html', name=name, letters=letter,
+                           pup_dictionary=pup_dictionary)
+
+
 @app.route('/information')
 def info():  # put application's code here
     return "<h1>Cats are cute!</h1>"
+
 
 @app.route('/some_page/<name>')
 def other_page(name):  # put application's code here
     return 'User: {}'.format(name)
 
-#dynamic route
+
+# dynamic route
 @app.route('/puppy/<name>')
 def puppy(name):
     return "<h1>This is a page for {}</h1>".format(name.upper())
+
 
 @app.route('/puppy100/<name>')
 def puppy100(name):
     return "100th letter for {}".format(name[30])
 
-#task
+
+# task
 # 1. not end in y and y
 # 2. end in y then ad iful
 @app.route('/puppy_latin/<name>')
 def puppy_latin(name):
     if not name.endswith("y"):
-        return 'Hi {}! Your latin name is {}'.format(name,name+'y')
+        return 'Hi {}! Your latin name is {}'.format(name, name + 'y')
     else:
-        return 'Hi {}! Your latin name is {}'.format(name,name[:-1]+'iful')
+        return 'Hi {}! Your latin name is {}'.format(name, name[:-1] + 'iful')
 
 
 if __name__ == '__main__':
