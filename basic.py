@@ -1,16 +1,31 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask import request
 
 app = Flask(__name__)
 
+
 @app.route('/')
-def index2():
-    return render_template('basic.html')
-
-# @app.route('/puppy_name/<name>')
-# def puppy_latin(name):
-#     return "<h1>Go to /puppy_name/name and see the results!</h1>"
+def index():
+    return render_template('front/index.html')
 
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+@app.route('/signup_form')
+def signup_form():
+    return render_template('front/signup_form.html')
+
+
+@app.route('/thankyou')
+def thank_you():
+    first = request.args.get('first')  # grab info that is sent from the form
+    last = request.args.get('last')
+    return render_template('front/thank_you.html', first_name=first,
+                           last_name=last)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('front/404.html'), 404
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
