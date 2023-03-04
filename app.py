@@ -1,13 +1,21 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 app.debug = True
 
+# @app.route('/')
+# def hello_world():  # put application's code here
+#     return "<h1>Hello World!</h1>"
 @app.route('/')
-def hello_world():  # put application's code here
-    return "<h1>Hello World!</h1>"
+def index2():
+    some_variable = "Jose"
+    return render_template('basic2.html', my_name_sending=some_variable)
 
+
+@app.route('/render')
+def index3():
+    return render_template('basic.html')
 @app.route('/information')
 def info():  # put application's code here
     return "<h1>Cats are cute!</h1>"
