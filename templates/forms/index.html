@@ -1,0 +1,16 @@
+<p>
+    {%  if breed  %}
+    The breed you entered is <mark>{{ breed }}</mark>
+    Update it in the form below:
+    {%  else %}
+    Please enter your breed:
+    {% endif %}
+</p>
+
+<form method="POST">
+{#    hidden_tag because it is inherited from FlaskForm#
+    {{ form.hidden_tag() }}
+    {{ form.breed.label }}{{ form.breed() }}
+    {{ form.submit() }}
+
+</form>
