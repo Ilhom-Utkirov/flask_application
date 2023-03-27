@@ -10,7 +10,7 @@ app = Flask(__name__)
 def index():
     return render_template('front/index.html')
 
-
+#test
 @app.route('/signup_form')
 def signup_form():
     return render_template('front/signup_form.html')
