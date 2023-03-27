@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request
 from flask import request
 
+# creating application object as instance of the class Class imported from Flask package of first line
+#__name__ use location that is passed in
 app = Flask(__name__)
 
-
+# @app.route --define index of funct
 @app.route('/')
 def index():
     return render_template('front/index.html')
